@@ -19,6 +19,19 @@ public class WaveController : MonoBehaviour
         }
     }
 
+    public void ChangeWave(Wave wave)
+    {
+        currentWave = wave;
+
+        enemySpawned = 0;
+        nextSpawnTime = Time.time;
+    }
+
+    public bool IsCompleted()
+    {
+        return enemySpawned >= currentWave.enemyCount;
+    }
+
     void Spawn()
     {
         //animalIndex = Random.Range(0, animalPrefabs.Length);
